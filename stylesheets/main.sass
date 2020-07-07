@@ -1,0 +1,323 @@
+@import extras/variables
+@import extras/typography
+@import extras/normalise
+@import extras/assets
+@import extras/keyframes
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css)
+
+\:root /* Responsive Phone */
+	font-size: 10px
+	--frame-width: 100vw
+
+	@media (min-width: $XGA-frame-width) /* Responsive HD Screen */
+		font-size: 12px
+		--frame-width: 1024px
+
+		@media (min-width: $HD-frame-width) /* Responsive HD Screen */
+			font-size: 14px
+			--frame-width: 1024px
+
+			@media (min-width: $UHD-frame-width) /* Responsive 2K Screen */
+				font-size: 16px
+				--frame-width: 1440px
+
+body
+	display: grid
+	grid-template-columns: 1fr var(--frame-width) 1fr
+	grid-template-rows: auto auto auto auto
+	background-color: $colour-background
+
+	min-height: 100vh
+	width: 100vw
+
+header
+	grid:
+		column-start: 1
+		column-end: 4
+		row-start: 1
+		row-end: 2
+
+
+nav
+	position: fixed
+	top: 0
+	left: 0
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100vw
+	padding: 
+		left: 1.2rem
+		right: 1.2rem
+	background-color: $colour-solid
+	z-index: 1000
+
+	@media print
+		display: none
+
+	@media (max-width: $MOBILE-frame-width)
+		background-color: green
+
+	.link-container
+		display: flex
+
+		a, .nav-item
+			display: flex
+			justify-content: center
+			align-items: center
+			padding: 1rem
+
+			color: $colour-white
+			height: 5rem
+
+
+			&:hover
+				background-color: $colour-light
+
+		.dropdown
+			position: relative
+			display: flex
+			justify-content: center
+			align-items: center
+			color: $colour-white
+
+			&:hover .dropdown-container
+				display: flex
+		
+			.dropdown-container
+				position: absolute
+				top: 5rem
+				display: none
+				justify-content: center
+				align-items: center
+				flex-direction: column
+
+				width: auto
+				background-color: $colour-solid
+
+				a
+					height: 3rem
+					width: 100%
+
+
+	.search-container
+		display: flex
+
+		.search-text
+			display: flex
+			justify-content: center
+			align-items: flex-end
+			flex-direction: column
+
+			color: $colour-white
+			opacity: 0.6
+
+			span
+				font-size: 0.7rem
+				text-transform: uppercase
+
+				&:nth-child(1)
+					font-weight: 700
+					
+
+		.search
+			height: 3rem
+			width: 10rem
+			background-color: $colour-white
+			margin-left: 1rem
+
+			border-radius: $border-radius
+
+			border: none
+			padding: 1.5rem
+			transition: all 500ms
+
+			&:focus 
+				outline: none
+				width: 20rem
+
+			&:focus::placeholder
+				color: $colour-white
+
+.page-title
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 14rem
+	width: 100vw
+	background-color: $colour-secondary
+	color: $colour-white
+	font-family: "Lobster"
+	text-transform: capitalize
+	padding: 0
+	margin: 0
+	margin-top: $nav-width
+
+main
+	display: flex
+	justify-content: flex-start
+	align-items: center
+	flex-direction: column
+
+	background-color: $colour-white
+	min-height: 100vh
+
+
+	padding: $nav-width
+	margin:
+		bottom: 2rem
+
+	grid:
+		column-start: 2
+		column-end: 3
+		row-start: 2
+		row-end: 3
+
+/* Commands & Attributes */
+.code-section
+	margin-top: 5rem
+	margin-bottom: 1rem
+
+	h3, .commands, .attributes
+		margin-bottom: 2rem
+
+	.att-container
+		background-color: $colour-light
+
+		.expand
+			background-color: $colour-solid !important
+
+
+.att-container
+	position: relative
+	height: fit-content
+	width: auto
+	background-color: $colour-solid
+	color: $colour-white
+	font-size: 0.8rem
+	border-radius: $border-radius
+
+	&:hover
+		cursor: pointer
+
+	.att-header
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-left: 1rem
+
+		.att-combine
+			display: flex
+
+			.att-name
+				font-family: 'Roboto Mono', "monaco", monospace
+
+			.att-type
+				margin-left: 0.5rem
+				font-weight: 700
+				display: none
+
+		.expand
+			background-color: $colour-light
+			padding: 0.6rem
+			border-top-right-radius: 4px
+			border-bottom-right-radius: 4px
+
+.att-content
+	margin-top: 1rem
+	display: none
+	padding:
+		left: 1rem
+		right: 1rem
+		bottom: 1rem
+
+.novice
+
+.intermediate
+
+.advanced
+
+
+/* Misc */
+#miscellaneous-page
+
+	.essential-controls, .extended-controls, .advanced-controls
+		display: flex
+		justify-content: center
+		align-items: flex-end
+		flex-wrap: wrap
+		width: 100%
+
+		label
+			font-size: 1.5rem
+			width: 100%
+			flex-grow: 1
+			flex-basis: 128px
+
+	label, input
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		text-align: center
+
+	label
+		margin: 2rem
+
+
+
+/* Contact */
+form
+	display: flex
+	justify-content: center
+	align-items: flex-start
+	flex-direction: column
+
+	label
+		padding:
+			top: 0.5rem
+			bottom: 0.5rem
+
+		input, textarea, select
+
+
+
+
+
+/* Footer */
+footer
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100vw
+	padding: 1.2rem
+	background-color: $colour-solid
+	z-index: 1000
+	color: $colour-white
+
+	grid:
+		column-start: 1
+		column-end: 4
+		row-start: 4
+		row-end: 5
+
+	@media print
+		display: none
+
+.current-page
+	background-color: green !important
+
+aside
+	position: sticky
+	display: flex
+	justify-content: center
+	align-items: center
+	bottom: 0
+	height: 5rem
+	width: 100vw
+	background-color: $colour-secondary
+	grid:
+		column-start: 1
+		column-end: 4
+		row-start: 3
+		row-end: 4
